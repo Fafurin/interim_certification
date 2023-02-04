@@ -3,6 +3,7 @@ import datetime
 import argparse
 from random import randint as rd
 from pprint import pprint
+import os
 
 parser = argparse.ArgumentParser(description="Note v. 0.1")
 
@@ -11,7 +12,9 @@ parser.add_argument('-t', '--title', type=str, help='Название замет
 parser.add_argument('-c', '--content', type=str, help='Текст заметки')
 args = parser.parse_args()
 
-filename = 'v:\\note.json'
+dirname = os.path.dirname(__file__)
+
+filename = dirname + "\\note.json"
 
 # получаем текущее время и дату и конвертируем в int
 dt = datetime.datetime.now()
